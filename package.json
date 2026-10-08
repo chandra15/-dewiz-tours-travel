@@ -1,0 +1,24 @@
+{
+  "name": "dewiz-tours-travel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass assets/scss/main.scss assets/css/main.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "sass": "^1.105.1"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.3.1",
+    "animate.css": "^4.1.1",
+    "bootstrap": "^5.3.8",
+    "glightbox": "^3.3.1",
+    "jquery": "^3.7.1",
+    "owl.carousel": "^2.3.4"
+  }
+}

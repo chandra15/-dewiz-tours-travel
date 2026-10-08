@@ -1,0 +1,202 @@
+@use "../abstract/variables" as *;
+
+
+// ========================================
+// Buttons
+// ========================================
+
+.custom-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-2;
+
+    min-height: 48px;
+    padding: 0.75rem 1.5rem;
+
+    border: 1px solid transparent;
+    border-radius: $radius-sm;
+
+    font-family: $font-body;
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    line-height: 1.2;
+
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+        color 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    // ------------------------------------
+    // Arrow / Icon
+    // ------------------------------------
+
+    i,
+    svg {
+        font-size: 0.85em;
+        transition: transform 0.3s ease;
+    }
+
+    &:hover {
+        i,
+        svg {
+            transform: translateX(3px);
+        }
+    }
+
+    // ------------------------------------
+    // Primary
+    // ------------------------------------
+
+    &--primary {
+        color: $color-surface-light;
+        background-color: $color-primary;
+        border-color: $color-primary;
+        box-shadow: $shadow-sm;
+
+        &:hover {
+            color: $color-surface-light;
+            background-color: $color-primary-dark;
+            border-color: $color-primary-dark;
+            transform: translateY(-2px);
+            box-shadow: $shadow-md;
+        }
+
+        &:focus-visible {
+            outline: 2px solid $color-accent;
+            outline-offset: 3px;
+        }
+
+        &:active {
+            color: $color-surface-light;
+            background-color: $color-primary-dark;
+            border-color: $color-primary-dark;
+            transform: translateY(0);
+            box-shadow: $shadow-sm;
+        }
+    }
+
+    // ------------------------------------
+    // Secondary / Gold
+    // ------------------------------------
+
+    &--secondary {
+        color: $color-primary-dark;
+        background-color: $color-accent;
+        border-color: $color-accent;
+
+        &:hover {
+            color: $color-primary-dark;
+            background-color: $color-surface-earth;
+            border-color: $color-surface-earth;
+            transform: translateY(-2px);
+            box-shadow: $shadow-sm;
+        }
+
+        &:focus-visible {
+            outline: 2px solid $color-primary;
+            outline-offset: 3px;
+        }
+
+        &:active {
+            background-color: $color-surface-earth;
+            border-color: $color-surface-earth;
+            transform: translateY(0);
+        }
+    }
+
+    // ------------------------------------
+    // Outline
+    // ------------------------------------
+
+    &--outline {
+        color: $color-primary;
+        background-color: transparent;
+        border-color: $color-primary;
+
+        &:hover {
+            color: $color-surface-light;
+            background-color: $color-primary;
+            border-color: $color-primary;
+            transform: translateY(-2px);
+            box-shadow: $shadow-sm;
+        }
+
+        &:focus-visible {
+            outline: 2px solid $color-accent;
+            outline-offset: 3px;
+        }
+
+        &:active {
+            color: $color-surface-light;
+            background-color: $color-primary-dark;
+            border-color: $color-primary-dark;
+            transform: translateY(0);
+        }
+    }
+
+    // ------------------------------------
+    // Light
+    // ------------------------------------
+
+    &--light {
+        color: $color-primary;
+        background-color: $color-surface-light;
+        border-color: $color-surface-light;
+        box-shadow: $shadow-sm;
+
+        &:hover {
+            color: $color-primary-dark;
+            background-color: $color-surface-earth;
+            border-color: $color-surface-earth;
+            transform: translateY(-2px);
+            box-shadow: $shadow-md;
+        }
+
+        &:focus-visible {
+            outline: 2px solid $color-accent;
+            outline-offset: 3px;
+        }
+    }
+
+    // ------------------------------------
+    // Large
+    // ------------------------------------
+
+    &--lg {
+        min-height: 54px;
+        padding: 0.875rem 1.875rem;
+        font-size: $font-size-lg;
+    }
+
+    // ------------------------------------
+    // Small
+    // ------------------------------------
+
+    &--sm {
+        min-height: 40px;
+        padding: 0.625rem 1.125rem;
+        font-size: $font-size-sm;
+    }
+
+    // ------------------------------------
+    // Disabled
+    // ------------------------------------
+
+    &:disabled,
+    &.is-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+        transform: none;
+        box-shadow: none;
+    }
+}

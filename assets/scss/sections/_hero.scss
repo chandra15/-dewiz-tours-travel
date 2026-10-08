@@ -1,0 +1,171 @@
+@use "../abstract/variables" as *;
+
+// ========================================
+// Hero Slider
+// ========================================
+
+.hero-slider {
+    position: relative;
+    overflow: hidden;
+
+    &__slide {
+        position: relative;
+        min-height: calc(100vh - 130px);
+
+        display: flex;
+        align-items: center;
+
+        overflow: hidden;
+    }
+
+    // ----------------------------------------
+    // Background Image
+    // ----------------------------------------
+
+    &__image {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    // ----------------------------------------
+    // Overlay
+    // ----------------------------------------
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(14, 48, 34, 0.88) 0%,
+                rgba(14, 48, 34, 0.65) 45%,
+                rgba(14, 48, 34, 0.20) 100%
+            );
+    }
+
+    // ----------------------------------------
+    // Content
+    // ----------------------------------------
+
+    &__content {
+        position: relative;
+        z-index: 2;
+
+        max-width: 720px;
+        padding-block: 7rem;
+    }
+
+    &__eyebrow {
+        display: inline-block;
+        margin-bottom: $space-4;
+
+        font-size: $font-size-sm;
+        font-weight: $font-weight-semibold;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: $color-accent;
+    }
+
+    &__title {
+        margin-bottom: $space-5;
+
+        color: $color-surface-light;
+        font-size: clamp(2.75rem, 6vw, 5rem);
+        line-height: 1.05;
+    }
+
+    &__text {
+        max-width: 620px;
+        margin-bottom: $space-7;
+
+        color: rgba(248, 247, 242, 0.9);
+        font-size: $font-size-lg;
+        line-height: 1.7;
+    }
+
+    &__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $space-4;
+    }
+
+    // ----------------------------------------
+    // Owl Controls
+    // ----------------------------------------
+
+    .owl-nav {
+
+    button.owl-prev,
+    button.owl-next {
+        position: absolute;
+        top: 50%;
+        z-index: 5;
+
+       
+
+        transition:
+            background-color 0.3s ease,
+            border-color 0.3s ease,
+            transform 0.3s ease;
+
+        &:hover {
+            color: $color-primary-dark;
+            background-color: $color-accent;
+            border-color: $color-accent;
+        }
+
+        i {
+            font-size: $font-size-base;
+        }
+    }
+
+    button.owl-prev {
+        left: 2rem;
+    }
+
+    button.owl-next {
+        right: 2rem;
+    }
+}
+
+
+    // ----------------------------------------
+    // Mobile
+    // ----------------------------------------
+
+    @media (max-width: 767.98px) {
+
+        &__slide {
+            min-height: 650px;
+        }
+
+        &__content {
+            padding-block: 5rem;
+        }
+
+        &__title {
+            font-size: clamp(2.5rem, 12vw, 3.5rem);
+        }
+
+        &__text {
+            font-size: $font-size-base;
+        }
+
+        &__actions {
+            flex-direction: column;
+
+            .custom-btn {
+                width: 100%;
+            }
+        }
+    }
+}

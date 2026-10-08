@@ -1,0 +1,37 @@
+// abstract
+@use "abstract/variables" as *;
+@use "abstract/mixins";
+
+// bootstrap
+@use "../../node_modules/bootstrap/scss/bootstrap";
+
+// base
+@use "base/reset";
+@use "base/base";
+@use "base/typography";
+
+
+//Components
+
+@use "components/navabr";
+
+//Layout
+
+@use "layout/header";
+@use "layout/footer";
+
+//sections
+
+@use "sections/hero";
+@use "sections/introduction";
+@use "sections/experinences";
+@use "sections/batwa-community";
+@use "sections/destinations";
+@use "sections/packages";
+@use "sections/gallery";
+@use "sections/cta";
+
+//Components
+
+@use "components/buttons";
+

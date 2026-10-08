@@ -1,0 +1,410 @@
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+
+.cta {
+    position: relative;
+
+    padding-block: $space-10;
+
+    background-color: $color-primary-dark;
+
+    color: $color-surface-light;
+
+    overflow: hidden;
+
+
+    // ----------------------------------------
+    // Main Inner Wrapper
+    // ----------------------------------------
+
+    &__inner {
+        position: relative;
+
+        padding: $space-9 $space-8;
+
+        border: 1px solid rgba(198, 161, 91, 0.35);
+
+        background-color: $color-primary;
+
+        overflow: hidden;
+    }
+
+
+    // ----------------------------------------
+    // Content
+    // ----------------------------------------
+
+    &__content {
+        position: relative;
+        z-index: 2;
+
+        max-width: 700px;
+    }
+
+
+    &__eyebrow {
+        display: block;
+
+        margin-bottom: $space-4;
+
+        font-size: $font-size-sm;
+        font-weight: $font-weight-semibold;
+
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+
+        color: $color-accent;
+    }
+
+
+    &__title {
+        max-width: 680px;
+
+        margin-bottom: $space-5;
+
+        font-size: clamp(
+            2.5rem,
+            5vw,
+            4.5rem
+        );
+
+        line-height: 1.05;
+
+        color: $color-surface-light;
+
+
+        span {
+            color: $color-accent;
+        }
+    }
+
+
+    &__text {
+        max-width: 620px;
+
+        margin: 0;
+
+        font-size: $font-size-lg;
+
+        line-height: 1.8;
+
+        color: rgba(
+            248,
+            247,
+            242,
+            0.76
+        );
+    }
+
+
+    // ----------------------------------------
+    // Action Area
+    // ----------------------------------------
+
+    &__action {
+        position: relative;
+        z-index: 2;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding-left: $space-7;
+
+        border-left:
+            1px solid rgba(
+                198,
+                161,
+                91,
+                0.35
+            );
+    }
+
+
+    // ----------------------------------------
+    // Contact Details
+    // ----------------------------------------
+
+    &__contact {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+
+        gap: $space-4;
+
+        margin-bottom: $space-6;
+    }
+
+
+    &__contact-item {
+        display: flex;
+        align-items: center;
+
+        gap: $space-3;
+
+        color: $color-surface-light;
+
+        text-decoration: none;
+
+
+        &:hover {
+
+            .cta__contact-icon {
+                color: $color-primary-dark;
+
+                background-color: $color-accent;
+            }
+
+            .cta__contact-info strong {
+                color: $color-accent;
+            }
+        }
+    }
+
+
+    &__contact-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        flex: 0 0 auto;
+
+        width: 44px;
+        height: 44px;
+
+        border: 1px solid
+            rgba(
+                198,
+                161,
+                91,
+                0.5
+            );
+
+        border-radius: 50%;
+
+        color: $color-accent;
+
+        transition:
+            color 0.3s ease,
+            background-color 0.3s ease;
+    }
+
+
+    &__contact-info {
+        display: flex;
+        flex-direction: column;
+
+        gap: 0.15rem;
+
+
+        small {
+            font-size: $font-size-xs;
+
+            font-weight: $font-weight-medium;
+
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+
+            color: rgba(
+                248,
+                247,
+                242,
+                0.55
+            );
+        }
+
+
+        strong {
+            font-size: $font-size-base;
+
+            font-weight: $font-weight-semibold;
+
+            color: $color-surface-light;
+
+            transition: color 0.3s ease;
+        }
+    }
+
+
+    // ----------------------------------------
+    // Button
+    // ----------------------------------------
+
+    &__button-wrap {
+        display: flex;
+    }
+
+
+    // ----------------------------------------
+    // Decorative Shapes
+    // ----------------------------------------
+
+    &__shape {
+        position: absolute;
+
+        border: 1px solid
+            rgba(
+                198,
+                161,
+                91,
+                0.16
+            );
+
+        pointer-events: none;
+
+
+        &--top {
+            top: -120px;
+            right: -80px;
+
+            width: 300px;
+            height: 300px;
+
+            border-radius: 50%;
+        }
+
+
+        &--bottom {
+            right: 30%;
+            bottom: -180px;
+
+            width: 360px;
+            height: 360px;
+
+            border-radius: 50%;
+        }
+    }
+
+
+    // ========================================
+    // Tablet
+    // ========================================
+
+    @media (max-width: 991.98px) {
+
+        padding-block: $section-padding-mobile;
+
+
+        &__inner {
+            padding: $space-8 $space-6;
+        }
+
+
+        &__action {
+            margin-top: $space-7;
+            padding-top: $space-6;
+            padding-left: 0;
+
+            border-top:
+                1px solid rgba(
+                    198,
+                    161,
+                    91,
+                    0.35
+                );
+
+            border-left: 0;
+        }
+
+
+        &__contact {
+            flex-direction: row;
+
+            flex-wrap: wrap;
+        }
+    }
+
+
+    // ========================================
+    // Mobile
+    // ========================================
+
+    @media (max-width: 767.98px) {
+
+        padding-block: $section-padding-mobile;
+
+
+        &__inner {
+            padding: $space-7 $space-5;
+        }
+
+
+        &__eyebrow {
+            margin-bottom: $space-3;
+        }
+
+
+        &__title {
+            margin-bottom: $space-4;
+
+            font-size: clamp(
+                2.25rem,
+                11vw,
+                3.25rem
+            );
+        }
+
+
+        &__text {
+            font-size: $font-size-base;
+        }
+
+
+        &__action {
+            margin-top: $space-6;
+            padding-top: $space-5;
+        }
+
+
+        &__contact {
+            gap: $space-3;
+        }
+
+
+        &__contact-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+
+        &__contact-info {
+
+            strong {
+                font-size: $font-size-sm;
+            }
+        }
+
+
+        &__button-wrap {
+            width: 100%;
+
+
+            .custom-btn {
+                width: 100%;
+            }
+        }
+
+
+        &__shape {
+
+            &--top {
+                width: 200px;
+                height: 200px;
+
+                top: -80px;
+                right: -80px;
+            }
+
+
+            &--bottom {
+                width: 250px;
+                height: 250px;
+
+                right: -100px;
+                bottom: -150px;
+            }
+        }
+    }
+}

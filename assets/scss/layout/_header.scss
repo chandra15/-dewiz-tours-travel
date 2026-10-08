@@ -1,0 +1,55 @@
+
+@use "../abstract/variables" as *;
+
+// ========================================
+// Topbar
+// ========================================
+
+.topbar {
+    padding: 0.65rem 0;
+    background-color: $color-primary-dark;
+    color: $color-surface-light;
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__contact {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    &__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        font-size: $font-size-sm;
+        color: $color-surface-light;
+
+        &:hover {
+            color: $color-accent;
+        }
+
+        i {
+            color: $color-accent;
+        }
+    }
+
+    &__social {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        a {
+            color: $color-surface-light;
+
+            &:hover {
+                color: $color-accent;
+            }
+        }
+    }
+}

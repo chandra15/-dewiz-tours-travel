@@ -1,0 +1,412 @@
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+// ========================================
+// Experiences
+// ========================================
+
+.experiences {
+    padding-block: $section-padding;
+    background-color: $color-primary-dark;
+    color: $color-surface-light;
+
+
+    // ----------------------------------------
+    // Section Introduction
+    // ----------------------------------------
+
+    &__intro {
+        position: sticky;
+        top: 120px;
+
+        max-width: 420px;
+    }
+
+    &__eyebrow {
+        display: block;
+        margin-bottom: $space-4;
+
+        font-family: $font-body;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-semibold;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+
+        color: $color-accent;
+    }
+
+    &__title {
+        margin-bottom: $space-5;
+
+        color: $color-surface-light;
+    }
+
+    &__text {
+        margin-bottom: $space-6;
+
+        color: rgba(248, 247, 242, 0.78);
+        font-size: $font-size-base;
+        line-height: 1.8;
+    }
+
+    &__link {
+        display: inline-flex;
+        align-items: center;
+        gap: $space-2;
+
+        font-weight: $font-weight-semibold;
+        color: $color-accent;
+
+        i {
+            transition: transform 0.3s ease;
+        }
+
+        &:hover {
+            color: $color-surface-light;
+
+            i {
+                transform: translateX(4px);
+            }
+        }
+    }
+
+
+    // ----------------------------------------
+    // Experience List
+    // ----------------------------------------
+
+    &__list {
+        border-top: 1px solid rgba(248, 247, 242, 0.18);
+    }
+
+
+    // ========================================
+    // Experience Item
+    // ========================================
+
+    .experience-item {
+        position: relative;
+
+        display: grid;
+        grid-template-columns: 55px minmax(0, 1fr) 72px 42px;
+        align-items: center;
+
+        gap: $space-5;
+
+        padding: $space-5 0;
+
+        border-bottom: 1px solid rgba(248, 247, 242, 0.18);
+
+        transition:
+            padding 0.3s ease,
+            background-color 0.3s ease;
+
+
+        // ------------------------------------
+        // Number
+        // ------------------------------------
+
+        &__number {
+            align-self: start;
+
+            padding-top: 0.25rem;
+
+            font-size: $font-size-sm;
+            font-weight: $font-weight-semibold;
+            letter-spacing: 0.08em;
+
+            color: $color-accent;
+        }
+
+
+        // ------------------------------------
+        // Content
+        // ------------------------------------
+
+        &__content {
+            min-width: 0;
+        }
+
+        &__title {
+            margin-bottom: $space-2;
+
+            font-family: $font-heading;
+            font-size: $font-size-xl;
+            font-weight: $font-weight-semibold;
+            line-height: 1.3;
+
+            color: $color-surface-light;
+        }
+
+        &__description {
+            max-width: 620px;
+            margin: 0;
+
+            color: rgba(248, 247, 242, 0.7);
+            font-size: $font-size-sm;
+            line-height: 1.7;
+        }
+
+
+        // ------------------------------------
+        // Featured Label
+        // ------------------------------------
+
+        &__label {
+            display: inline-block;
+            margin-bottom: $space-2;
+
+            font-size: $font-size-xs;
+            font-weight: $font-weight-semibold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+
+            color: $color-accent;
+        }
+
+
+        // ------------------------------------
+        // Thumbnail
+        // ------------------------------------
+
+        &__thumbnail {
+            width: 72px;
+            height: 55px;
+
+            overflow: hidden;
+
+            border-radius: $radius-md;
+
+            img {
+                width: 100%;
+                height: 100%;
+
+                object-fit: cover;
+
+                transition:
+                    transform 0.4s ease,
+                    opacity 0.3s ease;
+            }
+        }
+
+
+        // ------------------------------------
+        // Arrow
+        // ------------------------------------
+
+        &__arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 42px;
+            height: 42px;
+
+            border: 1px solid rgba(248, 247, 242, 0.25);
+            border-radius: 50%;
+
+            color: $color-surface-light;
+
+            transition:
+                color 0.3s ease,
+                background-color 0.3s ease,
+                border-color 0.3s ease,
+                transform 0.3s ease;
+
+            &:hover {
+                color: $color-primary-dark;
+                background-color: $color-accent;
+                border-color: $color-accent;
+
+                transform: translateX(3px);
+            }
+
+            i {
+                font-size: $font-size-sm;
+            }
+        }
+
+
+        // ====================================
+        // Featured Experience — 01
+        // ====================================
+
+        &--featured {
+            grid-template-columns: 55px minmax(0, 1fr) 190px;
+
+            padding-block: $space-7;
+
+
+            .experience-item__title {
+                font-size: $font-size-2xl;
+            }
+
+            .experience-item__description {
+                max-width: 520px;
+
+                font-size: $font-size-base;
+            }
+
+            .experience-item__image {
+                overflow: hidden;
+
+                border-radius: $radius-md;
+
+                img {
+                    width: 100%;
+
+                    aspect-ratio: 4 / 3;
+
+                    object-fit: cover;
+
+                    transition: transform 0.5s ease;
+                }
+            }
+
+            &:hover {
+
+                .experience-item__image img {
+                    transform: scale(1.04);
+                }
+            }
+        }
+
+
+        // ------------------------------------
+        // Hover — Regular Experiences
+        // ------------------------------------
+
+        &:not(&--featured):hover {
+            padding-inline: 0.75rem;
+
+            background-color: rgba(248, 247, 242, 0.04);
+
+
+            .experience-item__thumbnail img {
+                transform: scale(1.08);
+            }
+
+            .experience-item__arrow {
+                color: $color-primary-dark;
+                background-color: $color-accent;
+                border-color: $color-accent;
+
+                transform: translateX(3px);
+            }
+        }
+    }
+
+
+    // ========================================
+    // Tablet
+    // ========================================
+
+    @media (max-width: 991.98px) {
+
+        &__intro {
+            position: static;
+
+            max-width: 700px;
+        }
+
+        .experience-item {
+
+            &--featured {
+                grid-template-columns: 55px minmax(0, 1fr) 160px;
+            }
+        }
+    }
+
+
+    // ========================================
+    // Mobile
+    // ========================================
+
+    @media (max-width: 767.98px) {
+
+        padding-block: $section-padding-mobile;
+
+
+        // ------------------------------------
+        // Introduction
+        // ------------------------------------
+
+        &__intro {
+            max-width: 100%;
+        }
+
+        &__title {
+            margin-bottom: $space-4;
+        }
+
+
+        // ------------------------------------
+        // Regular Experience Items
+        // ------------------------------------
+
+        .experience-item,
+        .experience-item--featured {
+            grid-template-columns: 45px 1fr 40px;
+
+            gap: $space-3;
+
+            padding-block: $space-5;
+        }
+
+
+        // ------------------------------------
+        // Featured Experience
+        // ------------------------------------
+
+        .experience-item--featured {
+            display: block;
+
+            .experience-item__number {
+                margin-bottom: $space-3;
+            }
+
+            .experience-item__content {
+                margin-bottom: $space-4;
+            }
+
+            .experience-item__image {
+                width: 100%;
+                margin-top: $space-4;
+            }
+        }
+
+
+        // ------------------------------------
+        // Typography
+        // ------------------------------------
+
+        .experience-item__title,
+        .experience-item--featured .experience-item__title {
+            font-size: $font-size-xl;
+        }
+
+        .experience-item__description,
+        .experience-item--featured .experience-item__description {
+            font-size: $font-size-sm;
+        }
+
+
+        // ------------------------------------
+        // Thumbnail
+        // ------------------------------------
+
+        .experience-item__thumbnail {
+            display: none;
+        }
+
+
+        // ------------------------------------
+        // Arrow
+        // ------------------------------------
+
+        .experience-item__arrow {
+            width: 38px;
+            height: 38px;
+        }
+    }
+}

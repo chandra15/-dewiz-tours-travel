@@ -1,0 +1,174 @@
+@use "../abstract/variables" as *;
+
+// ========================================
+// Navbar
+// ========================================
+
+.dewiz-navbar {
+    
+    background-color: $color-surface-light;
+
+    // ----------------------------------------
+    // Brand
+    // ----------------------------------------
+
+    &__brand {
+        margin-right: 2rem;
+
+        img {
+            width: 108px;
+            height: auto;
+        }
+    }
+
+
+    // ----------------------------------------
+    // Navigation
+    // ----------------------------------------
+
+    .navbar-nav {
+        align-items: center;
+    }
+
+    .nav-link {
+        padding: 0.5rem 0.75rem;
+
+        font-family: $font-body;
+        font-size: $font-size-base;   
+        font-weight: $font-weight-semibold;
+        color: $color-primary;
+
+        transition: color 0.3s ease;
+
+        &:hover,
+        &.active {
+            color: $color-accent;
+        }
+    }
+
+
+    // ----------------------------------------
+    // Dropdown
+    // ----------------------------------------
+
+    .dropdown-menu {
+        min-width: 220px;
+
+        padding: 0.75rem 0;
+
+        border: 0;
+        border-radius: $radius-sm;
+        box-shadow: $shadow-md;
+    }
+
+    .dropdown-item {
+        padding: 0.6rem 1.25rem;
+
+        font-family: $font-body;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-medium;
+        color: $color-text;
+
+        &:hover,
+        &:focus {
+            color: $color-primary;
+            background-color: $color-surface-earth;
+        }
+    }
+
+
+    // ----------------------------------------
+    // Desktop Dropdown Hover
+    // ----------------------------------------
+
+    @media (min-width: 992px) {
+
+        .dropdown:hover > .dropdown-menu {
+            display: block;
+            margin-top: 0;
+        }
+
+        .dropdown:hover > .dropdown-toggle {
+            color: $color-accent;
+        }
+
+    }
+
+
+    // ----------------------------------------
+    // CTA
+    // ----------------------------------------
+
+    &__action {
+        margin-left: 1.5rem;
+    }
+
+
+    // ----------------------------------------
+    // Offcanvas
+    // ----------------------------------------
+
+    &__offcanvas {
+
+        .offcanvas-header {
+            padding: 1.5rem;
+
+            border-bottom: 1px solid rgba(14, 48, 34, 0.1);
+        }
+
+        .offcanvas-title {
+            font-family: $font-heading;
+            font-weight: $font-weight-semibold;
+            color: $color-primary;
+        }
+
+        .offcanvas-body {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+
+    // ----------------------------------------
+    // Mobile
+    // ----------------------------------------
+
+    @media (max-width: 991.98px) {
+
+        &__offcanvas {
+
+            .offcanvas-body {
+                display: block;
+                padding: 1.5rem;
+            }
+
+            .navbar-nav {
+                align-items: stretch;
+            }
+
+            .nav-link {
+                padding: 0.75rem 0;
+
+                border-bottom: 1px solid rgba(14, 48, 34, 0.08);
+            }
+
+            .dropdown-menu {
+                margin-top: 0;
+                padding: 0.5rem 0;
+
+                border: 0;
+                box-shadow: none;
+                background-color: $color-surface-light;
+            }
+
+            .dropdown-item {
+                padding: 0.6rem 1rem;
+            }
+        }
+
+
+        &__action {
+            margin: 1.5rem 0 0;
+        }
+    }
+}

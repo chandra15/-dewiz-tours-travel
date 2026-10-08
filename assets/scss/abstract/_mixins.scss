@@ -1,0 +1,21 @@
+// ========================================
+// Mixins
+// ========================================
+
+@use "variables" as *;
+
+
+// ----------------------------------------
+// Section Spacing
+// ----------------------------------------
+
+@mixin section-spacing(
+    $padding-y: $section-padding,
+    $padding-y-mobile: $section-padding-mobile
+) {
+    padding-block: $padding-y;
+
+    @media (max-width: 767.98px) {
+        padding-block: $padding-y-mobile;
+    }
+}

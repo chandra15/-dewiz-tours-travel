@@ -1,0 +1,212 @@
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+// ========================================
+// Batwa Story
+// ========================================
+
+.batwa-story {
+    position: relative;
+
+    background-color: $color-primary-dark;
+    color: $color-surface-light;
+    overflow: hidden;
+
+    // ----------------------------------------
+    // Content
+    // ----------------------------------------
+
+    &__content {
+        max-width: 620px;
+        margin-left: auto;
+        padding: $section-padding 5rem $section-padding 3rem;
+    }
+
+    &__eyebrow {
+        display: block;
+        margin-bottom: $space-4;
+
+        font-family: $font-body;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-semibold;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+
+        color: $color-accent;
+    }
+
+    &__title {
+        max-width: 520px;
+        margin-bottom: $space-5;
+
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        line-height: 1.05;
+        color: $color-surface-light;
+    }
+
+    &__divider {
+        width: 60px;
+        height: 2px;
+        margin-bottom: $space-6;
+
+        background-color: $color-accent;
+    }
+
+    &__text {
+        max-width: 570px;
+        margin-bottom: $space-4;
+
+        color: rgba(248, 247, 242, 0.78);
+        font-size: $font-size-base;
+        line-height: 1.85;
+    }
+
+    // ----------------------------------------
+    // CTA
+    // ----------------------------------------
+
+    &__link {
+        display: inline-flex;
+        align-items: center;
+        gap: $space-2;
+
+        margin-top: $space-4;
+
+        font-weight: $font-weight-semibold;
+        color: $color-accent;
+
+        i {
+            transition: transform 0.3s ease;
+        }
+
+        &:hover {
+            color: $color-surface-light;
+
+            i {
+                transform: translateX(4px);
+            }
+        }
+    }
+
+    // ----------------------------------------
+    // Image
+    // ----------------------------------------
+
+    &__image {
+        position: relative;
+
+        min-height: 680px;
+        height: 100%;
+
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            min-height: 680px;
+
+            object-fit: cover;
+
+            transition: transform 0.8s ease;
+        }
+
+        &:hover img {
+            transform: scale(1.03);
+        }
+    }
+
+    // ----------------------------------------
+    // Image Overlay
+    // ----------------------------------------
+
+    &__image-overlay {
+        position: absolute;
+        inset: 0;
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(14, 48, 34, 0.35) 0%,
+                rgba(14, 48, 34, 0.05) 45%,
+                rgba(14, 48, 34, 0.15) 100%
+            );
+    }
+
+    // ----------------------------------------
+    // Image Caption
+    // ----------------------------------------
+
+    &__image-caption {
+        position: absolute;
+        right: 2rem;
+        bottom: 2rem;
+
+        padding: 0.5rem 0.875rem;
+
+        font-size: $font-size-xs;
+        font-weight: $font-weight-semibold;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+
+        color: $color-surface-light;
+
+        background-color: rgba(14, 48, 34, 0.75);
+        backdrop-filter: blur(6px);
+
+        border-left: 2px solid $color-accent;
+    }
+
+    // ========================================
+    // Tablet
+    // ========================================
+
+    @media (max-width: 991.98px) {
+
+        &__content {
+            max-width: 760px;
+            margin-inline: auto;
+
+            padding: $section-padding 2rem;
+        }
+
+        &__image {
+            min-height: 560px;
+
+            img {
+                min-height: 560px;
+            }
+        }
+    }
+
+    // ========================================
+    // Mobile
+    // ========================================
+
+    @media (max-width: 767.98px) {
+
+        &__content {
+            padding: $section-padding-mobile 1rem;
+        }
+
+        &__title {
+            font-size: clamp(2.25rem, 11vw, 3rem);
+        }
+
+        &__text {
+            font-size: $font-size-base;
+        }
+
+        &__image {
+            min-height: 420px;
+
+            img {
+                min-height: 420px;
+            }
+        }
+
+        &__image-caption {
+            right: 1rem;
+            bottom: 1rem;
+        }
+    }
+}
